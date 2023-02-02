@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background: url(../../../assets/img/home-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+
+    h1 {
+        font-size: 3rem;
+        color: $text-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $text-color;
+        margin: .5rem 0 1.4rem
+    }
+}
+
+.btn {
+    padding: 15px 20px;
+    background-color: $main-color;
+    border-radius: .4rem;
+    color: $text-color;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    :hover {
+        background-color: $sub-color;
+    }
+}

@@ -1,0 +1,48 @@
+@import "../../../styles.scss";
+
+.volunteers-heading {
+    text-align: center;
+    h2 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: $text-color
+    }
+}
+.volunteers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    .box {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        position: relative;
+        padding: 20px;
+        border-radius: .5rem;
+        background-color: $main-color;
+        box-shadow: $box-shadow;
+        text-align: center;
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            align-self: center;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: $text-color;
+        }
+        p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: $text-color;
+        }
+        :hover {
+            background-color: $sub-color;
+            transition: 0.2s all linear;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+@import "../../../styles.scss";
+
+.weather {
+    .weather-heading {
+        text-align: center;
+
+        h2 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: $text-color
+        }
+    }
+
+    .weather-container {
+        background-color: $main-color;
+        border-radius: .4rem;
+        box-shadow: $box-shadow;
+        padding: 40px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30pх 0;
+        margin: 0 100px;
+        row-gap: 20px;
+    }
+
+    .notification {
+
+        background-color: $text-color;
+        display: none;
+        width: 100%;
+
+        p {
+            color: #8b1f2a;
+            font-size: 1.2em;
+            margin: 0;
+            text-align: center;
+            padding: 10px 0;
+        }
+    }
+
+    .weather-icon {
+
+        width: 300px;
+        height: 128px;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+
+    .temperature-value {
+        width: 300px;
+        height: 60px;
+
+        p {
+            padding: 0;
+            margin: 0;
+            color: $text-color;
+            font-size: 4em;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        span {
+            color: $text-color;
+            font-size: 0.5em;
+        }
+    }
+
+    .temperature-description p {
+        padding: 8px;
+        margin: 0;
+        color: $text-color;
+        text-align: center;
+        font-size: 1.2em;
+        text-transform: capitalize;
+    }
+
+    .location p {
+        margin: 0;
+        padding: 0;
+        color: $text-color;
+        text-align: center;
+        font-size: 0.8em;
+    }
+}

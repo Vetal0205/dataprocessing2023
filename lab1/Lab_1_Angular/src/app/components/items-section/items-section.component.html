@@ -1,0 +1,8 @@
+<section class="items" id="items">
+    <div class="items-heading">
+        <h2>Popular MANPADs</h2>
+    </div>
+    <div class="items-container">
+        <app-manpad-template *ngFor="let item of Manpads" [manpad]='item' ></app-manpad-template>
+    </div>
+</section>
