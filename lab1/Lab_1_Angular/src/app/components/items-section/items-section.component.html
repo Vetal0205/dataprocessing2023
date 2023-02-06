@@ -2,7 +2,18 @@
     <div class="items-heading">
         <h2>Popular MANPADs</h2>
     </div>
+    <put-request-form (putRequest)="putRequest($event)"></put-request-form>
+    <div class="put-hints">
+        <ul>
+            <li>name:"Blowpipe", weight:2.2, photo:"./assets/img/blowpipe.png"</li>
+            <li>name:"Igla", weight:1.3, photo:"./assets/img/igla.png"</li>
+            <li>name:"FIM-43 Redeye", weight:1.0, photo:"./assets/img/redeye.png"</li>
+            <li>name:"FIM-92 Stinger", weight:2.3, photo:"./assets/img/stinger.png"</li>
+            <li>name:"Javelin", weight:2.2, photo:"./assets/img/javelin.png"</li>
+        </ul>
+    </div>
     <div class="items-container">
-        <app-manpad-template *ngFor="let item of Manpads" [manpad]='item' ></app-manpad-template>
+        <app-manpad-template [manpad]='Manpads' ></app-manpad-template>
+        <!-- <app-manpad-template *ngFor="let item of Manpads" [manpad]='item' ></app-manpad-template> -->
     </div>
 </section>

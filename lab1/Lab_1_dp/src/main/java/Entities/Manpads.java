@@ -1,6 +1,8 @@
 package Entities;
 
-public class Manpads {
+import java.io.Serializable;
+
+public class Manpads implements Serializable {
     private String name;
     private double weight;
     private String photo;

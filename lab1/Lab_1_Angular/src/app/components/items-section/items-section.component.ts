@@ -10,9 +10,16 @@ import { GetManpadsService } from 'src/app/services/get-manpads.service';
 export class ItemsSectionComponent implements OnInit {
 
   constructor(private service: GetManpadsService) { }
-  Manpads:IManpad[] = [];
+  Manpads:IManpad =  {name:"Blowpipe", weight:2.2, photo:"./assets/img/blowpipe.png"};
+  // Manpads:IManpad[] = [];
   ngOnInit(): void {
+    this.getManpad();
+  }
+  getManpad(){
     this.service.getItems().subscribe((manpads) => { this.Manpads = manpads; console.log(manpads)});
   }
-
+  putRequest(body:IManpad){
+    this.service.putManpad(body).subscribe(()=>{alert("PUT request has been sent!"); this.getManpad();})
+    
+  }
 }
