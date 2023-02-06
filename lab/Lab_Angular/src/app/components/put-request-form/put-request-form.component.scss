@@ -1,0 +1,78 @@
+
+@import "../../../styles.scss";
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+div{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.form-group {
+  justify-content: center;
+  border-radius: .8rem;
+  background-color: $main-color;
+  box-shadow: $box-shadow;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  width: 40%;
+  gap:1rem;
+}
+
+.form-group h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.form-group .form-field {
+  width: 80%;
+  position: relative;
+  
+}
+.mat-form-field{
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.form-group .form-field input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.btn-submit {
+  padding: 0 1rem;
+  color: $text-color;
+  border: 2px $bg-color solid;
+  background-color: $main-color;
+  border-radius: .4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 20px;
+
+  &:hover {
+      background-color: $bg-color;
+      transition: 0.2s all linear;
+  }
+}
+

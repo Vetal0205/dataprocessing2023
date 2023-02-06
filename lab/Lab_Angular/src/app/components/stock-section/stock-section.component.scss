@@ -1,0 +1,115 @@
+@import "../../../styles.scss";
+
+.stock-container {
+    background-color: $main-color;
+    border-radius: .4rem;
+    box-shadow: $box-shadow;
+    padding: 20px;
+}
+
+.stock-heading {
+    text-align: center;
+
+    h2 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: $text-color
+    }
+
+}
+
+.stock-header {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.stock-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $bg-color;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: $text-color;
+}
+
+.stock-row {
+    display: flex;
+
+    :last-child {
+        border-bottom: 1px solid $bg-color;
+    }
+}
+
+.stock-item {
+    width: 45%;
+}
+
+.stock-weight {
+    width: 20%;
+}
+
+.stock-quantity {
+    width: 35%;
+    justify-content: space-between;
+}
+
+.stock-item-title {
+    text-transform: uppercase;
+    color: $text-color;
+    margin-left: 1.5em;
+    font-size: 1em;
+}
+
+.stock-item-image {
+    width: 75px;
+    height: auto;
+    padding: 10px;
+    border-radius: .5rem;
+    background-color: $text-color;
+}
+
+.btn-danger {
+    color: white;
+    background-color: $bg-color;
+    border: none;
+    border-radius: .4em;
+    font-weight: bold;
+
+    &:hover {
+        background-color: #CC4C4C;
+    }
+}
+
+.stock-quantity-input {
+    height: 34px;
+    width: 80px;
+    border-radius: .4rem;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1em;
+}
+
+.stock-total {
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+
+    h3 {
+        font-size: 1.3rem;
+        margin: .5rem 0;
+        text-transform: uppercase;
+        color: $text-color;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $text-color;
+    }
+}

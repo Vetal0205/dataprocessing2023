@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding: 4rem;
+    scroll-behavior: smooth;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+$text-color: #E3EDA6;
+$bg-color: #718400;
+$main-color: #96B100;
+$sub-color: #7F911A;
+
+$box-shadow: 2px 4px 10px 4px rgb(14 55 54 / 15%);
+
+section {
+    padding: 50px 100px;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    transition: 0.5s linear;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    .shadow {
+        background-color: $main-color;
+        box-shadow: $box-shadow;
+    }
+}
+.search-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    background-color: $main-color;
+    box-shadow: $box-shadow;
+}
+@media (max-width:1060px) {
+    header {
+        padding: 16px 60px;
+    }
+
+    section {
+        padding: 50px 60px;
+    }
+
+    .home-text {
+        font-size: 2.4rem;
+    }
+    /* .weather .container{
+        width: 450px;
+    } */
+}
+
+@media (max-width:990px) {
+    header {
+        padding: 16px 4%;
+    }
+
+    section {
+        padding: 50px 4%;
+    }
+
+    .home-text {
+        font-size: 2rem;
+    }
+    /* .weather .container{
+        width: 350px;
+    } */
+}
+
+@media (max-width:770px) {
+    header {
+        padding: 12px 4%;
+    }
+
+    #menu-icon {
+        display: initial;
+        margin-left: 65px;
+
+    }
+
+    .navbar {
+        position: absolute;
+        top: -400%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.4rem;
+        padding: 20px;
+        transition: 0.3s;
+        text-align: center;
+        background-color: $bg-color;
+    }
+
+    .navbar.active {
+        top: 100%;
+    }
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

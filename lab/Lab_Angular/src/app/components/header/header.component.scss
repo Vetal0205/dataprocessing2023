@@ -1,0 +1,82 @@
+@import "../../../styles.scss";
+
+.logo img {
+    width: 60px;
+}
+
+.navbar {
+    display: flex;
+    a {
+        padding: 15px 20px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $text-color;
+        border-radius: .4rem;
+        &:hover {
+            background-color: $sub-color;
+            transition: 0.2s all linear;
+        }
+    }
+}
+.header-icons {
+    display: flex;
+    z-index: 10000;
+    column-gap: .5rem;
+    .stock {
+        position: relative;
+        .stock-amount {
+            position: absolute;
+            top: 0;
+            right: 3px;
+            font-size: .6rem;
+            background-color: red;
+            color: #fff;
+            border-radius: .4rem;
+            padding: 3px;
+            display: none;
+        }
+        
+    }
+}
+
+.bx {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 15px 20px;
+    color: $text-color;
+    font-weight: 600;
+    &:hover {
+        background-color: $sub-color;
+        border-radius: .4rem;
+        transition: 0.2s all linear;
+    }
+}
+
+#menu-icon {
+    display: none;
+    z-index: 100001;
+}
+
+.search-box {
+    position: absolute;
+    width: 100%;
+    top: -100%;
+    right: 0%;
+    /* left:50%;
+    transform: translate(-50%); */
+    background-color: $text-color;
+    .active {
+        top: 110%;
+        box-shadow: $box-shadow;
+        transition: 0.2s all linear;
+    }
+    input {
+        padding: 20px;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 1rem;
+    
+    }
+}
