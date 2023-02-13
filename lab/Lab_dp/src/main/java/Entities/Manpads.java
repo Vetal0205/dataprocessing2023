@@ -3,9 +3,17 @@ package Entities;
 import java.io.Serializable;
 
 public class Manpads implements Serializable {
+    private int id;
     private String name;
     private double weight;
     private String photo;
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -31,9 +39,11 @@ public class Manpads implements Serializable {
         this.photo = photo;
     }
 
-    public Manpads(String name, double weight, String photo) {
+    public Manpads(int id, String name, double weight, String photo) {
+        this.id = id;
         this.name = name;
         this.weight = weight;
         this.photo = photo;
     }
+    public Manpads(){}
 }

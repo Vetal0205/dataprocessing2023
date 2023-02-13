@@ -10,7 +10,7 @@ import { IManpad } from 'src/app/interfaces/imanpad';
 })
 export class PutRequestFormComponent implements OnInit, OnDestroy {
   public formGroup!: FormGroup;
-  public model: IManpad = { name: "Blowpipe", weight: 2.2, photo: "./assets/img/blowpipe.png" };
+  @Input() public model!: IManpad;
   @Output() public onChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public onInit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public putRequest: EventEmitter<IManpad> = new EventEmitter<IManpad>();

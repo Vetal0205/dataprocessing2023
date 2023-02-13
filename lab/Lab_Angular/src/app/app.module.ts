@@ -11,7 +11,7 @@ import { WeatherSectionComponent } from './components/weather-section/weather-se
 import { VolunteersSectionComponent } from './components/volunteers-section/volunteers-section.component';
 import { AboutSectionComponent } from './components/about-section/about-section.component';
 import { ManpadTemplateComponent } from './components/manpad-template/manpad-template.component';
-import { PutRequestFormComponent } from './components/put-request-form/put-request-form.component';
+import { PutRequestFormComponent } from './components/request-form/put-request-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button";
+import { PostRequestComponent } from './components/post-request/post-request.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatButtonModule } from "@angular/material/button";
     WeatherSectionComponent,
     VolunteersSectionComponent,
     AboutSectionComponent,
-    ManpadTemplateComponent
+    ManpadTemplateComponent,
+    PostRequestComponent
   ],
   imports: [
     MatFormFieldModule,

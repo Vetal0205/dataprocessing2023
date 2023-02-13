@@ -13,19 +13,19 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class GetManpadsService {
-  private apiurl:string = "http://localhost:8080/Lab_1_dp/";
+  private apiurl:string = "http://localhost:8080/Lab_dp/manpads";
   constructor(private http:HttpClient) { }
 
-  getItems():Observable<IManpad>{
-    const url = `${this.apiurl}manpads`
-    return this.http.get<IManpad>(url);
+  getItems():Observable<IManpad[]>{
+    return this.http.get<IManpad[]>(this.apiurl);
   }
-  putManpad(body:IManpad):Observable<IManpad>{
-    const url = `${this.apiurl}manpads?name=${body.name}&weight=${body.weight}&photo=${body.photo}`
-    return this.http.put<IManpad>(url, body)
+  putManpad(body:IManpad):Observable<IManpad[]>{
+    return this.http.put<IManpad[]>(this.apiurl + "/" + body.id, body)
   }
-  // getItems():Observable<IManpad[]>{
-  //   const url = `${this.apiurl}manpads`
-  //   return this.http.get<IManpad[]>(url);
-  // }
+  delManpad(body:IManpad):Observable<IManpad[]>{
+    return this.http.delete<IManpad[]>(this.apiurl + "/" + body.id)
+  }
+  postManpad(body:IManpad):Observable<IManpad>{
+    return this.http.post<IManpad>(this.apiurl, body)
+  }
 }

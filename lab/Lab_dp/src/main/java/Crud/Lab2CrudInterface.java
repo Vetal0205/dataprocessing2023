@@ -2,7 +2,9 @@ package Crud;
 
 import Entities.Manpads;
 
+import java.util.List;
+
 public interface Lab2CrudInterface {
-    public Manpads readData();
-    public void addData(Manpads data);
+    public List<Manpads> readData();
+    public void addData(List<Manpads> data);
 }

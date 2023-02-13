@@ -1,0 +1,49 @@
+<div class="">
+
+    <form class="form-group" [formGroup]="PostFormGroup" (ngSubmit)="onSubmit()">
+      <h2>Make POST request</h2>
+      <div class="form-field">
+  
+  
+        <mat-form-field>
+          <input placeholder="Name" type="text" matInput formControlName="name" required>
+  
+  
+  
+          <mat-error *ngIf="f.name?.errors?.required">Input is required</mat-error>
+  
+  
+        </mat-form-field>
+  
+      </div>
+      <div class="form-field">
+  
+  
+        <mat-form-field>
+          <input placeholder="Weight" type="number" matInput formControlName="weight" min="1" required>
+  
+  
+  
+          <mat-error *ngIf="f.weight?.errors?.required">Input is required</mat-error>
+  
+  
+        </mat-form-field>
+  
+      </div>
+      <div class="form-field">
+  
+  
+        <mat-form-field>
+          <input placeholder="Photo" type="text" matInput formControlName="photo" required>
+  
+  
+  
+          <mat-error *ngIf="f.photo?.errors?.required">Input is required</mat-error>
+  
+  
+        </mat-form-field>
+  
+      </div>
+      <input type="submit" name="submit" value="Make request!" class="btn btn-submit">
+    </form>
+  </div>

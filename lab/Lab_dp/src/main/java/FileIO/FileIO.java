@@ -1,6 +1,9 @@
 package FileIO;
 
+import Entities.Manpads;
+
 import java.io.*;
+import java.util.List;
 
 public class FileIO implements FileIOInterface{
     private String fileName = "db.txt";
@@ -8,28 +11,30 @@ public class FileIO implements FileIOInterface{
         return fileName;
     }
 
+    File yourFile = new File(fileName);
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
     @Override
-    public void loadToFile(Object object) {
+    public void loadToFile(List<Manpads> objects) {
         try {
-            FileOutputStream fos = new FileOutputStream(fileName);
+            this.yourFile.createNewFile(); // if file already exists will do nothing
+            FileOutputStream fos = new FileOutputStream(yourFile);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(object);
+            oos.writeObject(objects);
             oos.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
     @Override
-    public Object readFromFile() {
-        Object data = null;
+    public List<Manpads> readFromFile() {
+        List<Manpads> data = null;
         try {
             FileInputStream fis = new FileInputStream(fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            data = ois.readObject();
+            data = (List<Manpads>) ois.readObject();
             ois.close();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
