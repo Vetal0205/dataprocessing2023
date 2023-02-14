@@ -1,5 +1,19 @@
 @import "../../../styles.scss";
 
+.btn-add {
+    padding: 0 1rem;
+    color: $text-color;
+    border: 2px $bg-color solid;
+    background-color: $main-color;
+    border-radius: .4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: $bg-color;
+        transition: 0.2s all linear;
+    }
+}
 .box {
     position: relative;
     padding: 20px;
@@ -10,6 +24,12 @@
     background-color: $main-color;
     box-shadow: $box-shadow;
 
+    .name-and-del{
+        position: relative;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
     img {
         background-color: $text-color;
         border-radius: .8rem;
@@ -35,20 +55,6 @@
     }
 
     .content {
-        button {
-            padding: 0 1rem;
-            color: $text-color;
-            border: 2px $bg-color solid;
-            background-color: $main-color;
-            border-radius: .4rem;
-            font-weight: 500;
-            text-transform: uppercase;
-
-            &:hover {
-                background-color: $bg-color;
-                transition: 0.2s all linear;
-            }
-        }
 
         span {
             padding: 0 1rem;

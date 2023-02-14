@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IManpad } from 'src/app/interfaces/imanpad';
 
 @Component({
@@ -8,9 +8,16 @@ import { IManpad } from 'src/app/interfaces/imanpad';
 })
 export class ManpadTemplateComponent implements OnInit {
   @Input() manpad!: IManpad;
+  @Output() public deleteClicked: EventEmitter<IManpad> = new EventEmitter<IManpad>();
+  @Output() public selectClicked: EventEmitter<IManpad> = new EventEmitter<IManpad>();
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  deleteClick(manpad:IManpad){
+    this.deleteClicked.emit(manpad);
+  }
+  onSelect(manpad:IManpad){
+    this.selectClicked.emit(manpad);
+  }
 }

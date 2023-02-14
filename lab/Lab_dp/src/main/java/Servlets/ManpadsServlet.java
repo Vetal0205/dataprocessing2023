@@ -13,12 +13,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@WebServlet("/manpads")
+@WebServlet("/manpads/*")
 public class ManpadsServlet extends HttpServlet {
-    List<Manpads> manpadsList;
+    List<Manpads> manpadsList = new ArrayList<Manpads>();
     ServletConfigInterface servletConfig;
     Lab2CrudInterface lab2Crud;
     public ManpadsServlet() {

@@ -3,7 +3,7 @@
         <h2>Popular MANPADs</h2>
     </div>
     <put-request-form *ngIf="showPUTform && selectedManpad" [model]="selectedManpad" (putRequest)="putRequest($event)"></put-request-form>
-    <app-post-request *ngIf="showPOSTform"  (postRequest)="postRequest($event)"></app-post-request>
+    <app-post-request *ngIf="showPOSTform && !showPUTform"  (postRequest)="postRequest($event)"></app-post-request>
     <div class="put-hints">
         <ul>
             <li>name:"Blowpipe", weight:2.2, photo:"./assets/img/blowpipe.png"</li>
@@ -15,6 +15,6 @@
     </div>
     <div class="items-container" *ngIf="Manpads">
         <!-- <app-manpad-template [manpad]='Manpads' ></app-manpad-template> -->
-        <app-manpad-template  *ngFor="let item of Manpads" [manpad]='item' (click)="onSelect(item)"><button (click)="deleteRequest(item)">X</button></app-manpad-template>
+        <app-manpad-template  *ngFor="let item of Manpads" [manpad]='item' (deleteClicked)="deleteRequest($event)" (selectClicked)="onSelect($event)"></app-manpad-template>
     </div>
 </section>

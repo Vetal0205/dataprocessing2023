@@ -13,8 +13,8 @@ export class ItemsSectionComponent implements OnInit {
   Manpads!: IManpad[];
   selectedManpad?: IManpad;
 
-  showPOSTform:boolean = true;
-  showPUTform:boolean = false;
+  showPOSTform: boolean = true;
+  showPUTform: boolean = false;
 
   ngOnInit(): void {
     this.getManpad();
@@ -30,7 +30,14 @@ export class ItemsSectionComponent implements OnInit {
     }
   }
   getManpad() {
-    this.service.getItems().subscribe((manpads) => { this.Manpads = manpads; console.log(manpads) });
+    this.service.getItems().subscribe((manpads) => {
+      this.Manpads = manpads; console.log(manpads);
+      if (this.Manpads.length == 0 && this.showPUTform == true) {
+        this.showPUTform = false;
+        this.selectedManpad = undefined;
+
+      }
+    });
   }
   postRequest(body: IManpad) {
     this.service.postManpad(body).subscribe(() => { alert("POST request has been sent!"); this.getManpad(); })
@@ -39,6 +46,9 @@ export class ItemsSectionComponent implements OnInit {
     this.service.putManpad(body).subscribe(() => { alert("PUT request has been sent!"); this.getManpad(); })
   }
   deleteRequest(body: IManpad) {
-    this.service.delManpad(body).subscribe(() => { alert("DELETE request has been sent!"); this.getManpad(); })
+    this.service.delManpad(body).subscribe(() => {
+      alert("DELETE request has been sent!");
+      this.getManpad();
+    })
   }
 }

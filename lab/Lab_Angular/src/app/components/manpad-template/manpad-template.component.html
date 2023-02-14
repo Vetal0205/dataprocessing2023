@@ -1,9 +1,11 @@
 <div class="box">
-    <img src="{{manpad.photo}}" alt="{{manpad.name}}">
-    <h3>{{manpad.name}}</h3>
+    <img (click)="onSelect(manpad)" src="{{manpad.photo}}" alt="{{manpad.name}}">
+    <div class="name-and-del">
+        <h3>{{manpad.name}}</h3>
+        <button class="btn-add" (click)="deleteClick(manpad)">X</button>
+    </div>
     <div class="content">
         <span>{{manpad.weight}} kg</span>
-        <ng-content></ng-content>
         <div class="quantity-box">
             <i class='bx bx-minus'></i>
             <input class="quantity-num" type="text" value="0" disabled>

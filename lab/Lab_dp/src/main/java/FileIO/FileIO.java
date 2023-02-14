@@ -12,6 +12,7 @@ public class FileIO implements FileIOInterface{
     }
 
     File yourFile = new File(fileName);
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
@@ -19,8 +20,7 @@ public class FileIO implements FileIOInterface{
     @Override
     public void loadToFile(List<Manpads> objects) {
         try {
-            this.yourFile.createNewFile(); // if file already exists will do nothing
-            FileOutputStream fos = new FileOutputStream(yourFile);
+            FileOutputStream fos = new FileOutputStream(fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(objects);
             oos.close();

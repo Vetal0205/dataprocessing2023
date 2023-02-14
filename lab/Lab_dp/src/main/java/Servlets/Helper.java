@@ -31,6 +31,9 @@ public class Helper {
     }
     public static int getNextId(List<Manpads> list) {
         int maxId = 0;
+        if (list == null){
+            return 0;
+        }
         for (Manpads manpads : list) {
             int currentId = manpads.getId();
             if (currentId > maxId) maxId = currentId;
@@ -39,6 +42,9 @@ public class Helper {
     }
     public static int getIndexByUserId(int id,  List<Manpads> list){
         int listId = id;
+        if (list == null){
+            return -1;
+        }
         for (Manpads temp : list) {
             if (temp.getId() == listId) {
                 listId = list.indexOf(temp);
