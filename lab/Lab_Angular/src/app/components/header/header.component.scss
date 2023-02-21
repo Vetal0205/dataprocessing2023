@@ -19,6 +19,9 @@
         }
     }
 }
+.active-navbar{
+    top:100%;
+}
 .header-icons {
     display: flex;
     z-index: 10000;
@@ -66,11 +69,7 @@
     /* left:50%;
     transform: translate(-50%); */
     background-color: $text-color;
-    .active {
-        top: 110%;
-        box-shadow: $box-shadow;
-        transition: 0.2s all linear;
-    }
+    
     input {
         padding: 20px;
         border: none;
@@ -80,3 +79,8 @@
     
     }
 }
+.active-search {
+    top: 110%;
+    box-shadow: $box-shadow;
+    transition: 0.2s all linear;
+}  

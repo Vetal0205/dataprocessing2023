@@ -1,0 +1,11 @@
+<div class="stock-row">
+    <div class="stock-item stock-column">
+        <img class="stock-item-image" src="{{stock_item.photo}}" width="100" height="100">
+        <span class="stock-item-title">{{stock_item.name}}</span>
+    </div>
+    <span class="stock-weight stock-column">{{stock_item.weight}}</span>
+    <div class="stock-quantity stock-column">
+        <input class="stock-quantity-input" type="number" value="{{stock_item.amount}}">
+        <button class="btn btn-danger" type="button" (click)="deleteItem(stock_item)">X</button>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IManpad } from 'src/app/interfaces/imanpad';
+import { IManpadExt } from 'src/app/interfaces/imanpad-ext';
 import { GetManpadsService } from 'src/app/services/get-manpads.service';
 
 @Component({
@@ -13,11 +14,16 @@ export class ItemsSectionComponent implements OnInit {
   Manpads!: IManpad[];
   selectedManpad?: IManpad;
 
+  stockItems:IManpadExt[] = [];
+
   showPOSTform: boolean = true;
   showPUTform: boolean = false;
 
   ngOnInit(): void {
     this.getManpad();
+  }
+  getStockItem(manpad:IManpadExt){
+    this.stockItems.push(manpad);
   }
   onSelect(manpad: IManpad) {
     if (this.selectedManpad && manpad.id == this.selectedManpad.id) {
@@ -31,7 +37,7 @@ export class ItemsSectionComponent implements OnInit {
   }
   getManpad() {
     this.service.getItems().subscribe((manpads) => {
-      this.Manpads = manpads; console.log(manpads);
+      this.Manpads = manpads;
       if (this.Manpads.length == 0 && this.showPUTform == true) {
         this.showPUTform = false;
         this.selectedManpad = undefined;
@@ -39,6 +45,11 @@ export class ItemsSectionComponent implements OnInit {
       }
     });
   }
+  deleteItem(item:IManpadExt)
+  {
+    this.stockItems = this.stockItems.filter(obj => obj.id !== item.id);
+  }
+
   postRequest(body: IManpad) {
     this.service.postManpad(body).subscribe(() => { alert("POST request has been sent!"); this.getManpad(); })
   }

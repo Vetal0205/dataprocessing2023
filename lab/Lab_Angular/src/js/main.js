@@ -1,21 +1,21 @@
-let search_bar = document.querySelector('.search-box');
+// let search_bar = document.querySelector('.search-box');
 
-document.querySelector('#search-icon').onclick = () => {
-    search_bar.classList.toggle('active');
-    nav_bar.classList.remove('active');
-}
-let nav_bar = document.querySelector('.navbar');
+// document.querySelector('#search-icon').onclick = () => {
+//     search_bar.classList.toggle('active');
+//     nav_bar.classList.remove('active');
+// }
+// let nav_bar = document.querySelector('.navbar');
 
-document.querySelector('#menu-icon').onclick = () => {
-    nav_bar.classList.toggle('active');
-    search_bar.classList.remove('active');
-    if (header.style.backgroundColor != 'var(--main-color)') {
-        header.style.backgroundColor = 'var(--main-color)';
-    }
-    else {
-        header.style.backgroundColor = null;
-    }
-}
+// document.querySelector('#menu-icon').onclick = () => {
+//     nav_bar.classList.toggle('active');
+//     search_bar.classList.remove('active');
+//     if (header.style.backgroundColor != 'var(--main-color)') {
+//         header.style.backgroundColor = 'var(--main-color)';
+//     }
+//     else {
+//         header.style.backgroundColor = null;
+//     }
+// }
 let header = document.querySelector('header');
 window.addEventListener('scroll', () => header.classList.toggle('shadow', window.scrollY > 0))
 
@@ -25,28 +25,28 @@ window.onscroll = () => {
 }
 updateStocktotal()
 
-let buttonMinus = document.querySelectorAll('.bx-minus')
-for (let i = 0; i < buttonMinus.length; i++) {
-    let button = buttonMinus[i];
-    button.addEventListener('click', quantityChangedItemsMinus);
-}
-let buttonPlus = document.querySelectorAll('.bx-plus')
-for (let i = 0; i < buttonPlus.length; i++) {
-    let button = buttonPlus[i];
-    button.addEventListener('click', quantityChangedItemsPlus)
-}
+// let buttonMinus = document.querySelectorAll('.bx-minus')
+// for (let i = 0; i < buttonMinus.length; i++) {
+//     let button = buttonMinus[i];
+//     button.addEventListener('click', quantityChangedItemsMinus);
+// }
+// let buttonPlus = document.querySelectorAll('.bx-plus')
+// for (let i = 0; i < buttonPlus.length; i++) {
+//     let button = buttonPlus[i];
+//     button.addEventListener('click', quantityChangedItemsPlus)
+// }
 
-let quantityInputs = document.getElementsByClassName('stock-quantity-input');
-for (let i = 0; i < quantityInputs.length; i++) {
-    let input = quantityInputs[i];
-    input.addEventListener('change', quantityChangedStock)
-}
+// let quantityInputs = document.getElementsByClassName('stock-quantity-input');
+// for (let i = 0; i < quantityInputs.length; i++) {
+//     let input = quantityInputs[i];
+//     input.addEventListener('change', quantityChangedStock)
+// }
 
-let addToStockButtons = document.getElementsByClassName('btn-add');
-for (let i = 0; i < addToStockButtons.length; i++) {
-    let button = addToStockButtons[i];
-    button.addEventListener('click', addTostockClicked);
-}
+// let addToStockButtons = document.getElementsByClassName('btn-add');
+// for (let i = 0; i < addToStockButtons.length; i++) {
+//     let button = addToStockButtons[i];
+//     button.addEventListener('click', addTostockClicked);
+// }
 
 let removeCartItemButtons = document.getElementsByClassName('btn-danger');
 for (let i = 0; i < removeCartItemButtons.length; i++) {
@@ -57,23 +57,23 @@ let filterinput = document.querySelector('#search');
 filterinput.addEventListener('keyup', filterTitles)
 
 
-function quantityChangedItemsPlus(event) {
-    let button = event.target;
-    let currentQuant = parseFloat(button.previousElementSibling.value);
+// function quantityChangedItemsPlus(event) {
+//     let button = event.target;
+//     let currentQuant = parseFloat(button.previousElementSibling.value);
 
-    button.previousElementSibling.value = currentQuant + 1;
-}
-function quantityChangedItemsMinus(event) {
-    let button = event.target;
+//     button.previousElementSibling.value = currentQuant + 1;
+// }
+// function quantityChangedItemsMinus(event) {
+//     let button = event.target;
 
-    let currentQuant = parseFloat(button.nextElementSibling.value);
-    if (currentQuant <= 0) {
-        return
-    }
-    else {
-        button.nextElementSibling.value = currentQuant - 1;
-    }
-}
+//     let currentQuant = parseFloat(button.nextElementSibling.value);
+//     if (currentQuant <= 0) {
+//         return
+//     }
+//     else {
+//         button.nextElementSibling.value = currentQuant - 1;
+//     }
+// }
 
 function filterTitles() {
     let filterValue = document.querySelector('#search').value.toUpperCase();

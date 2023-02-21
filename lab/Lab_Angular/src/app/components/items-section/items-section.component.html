@@ -15,6 +15,7 @@
     </div>
     <div class="items-container" *ngIf="Manpads">
         <!-- <app-manpad-template [manpad]='Manpads' ></app-manpad-template> -->
-        <app-manpad-template  *ngFor="let item of Manpads" [manpad]='item' (deleteClicked)="deleteRequest($event)" (selectClicked)="onSelect($event)"></app-manpad-template>
+        <app-manpad-template  *ngFor="let item of Manpads" [manpad]='item' (deleteClicked)="deleteRequest($event)" (addButtonClicked)="getStockItem($event)" (selectClicked)="onSelect($event)"></app-manpad-template>
     </div>
 </section>
+<app-stock-section (deleteClicked)="deleteItem($event)" [stock_items]="stockItems"></app-stock-section>

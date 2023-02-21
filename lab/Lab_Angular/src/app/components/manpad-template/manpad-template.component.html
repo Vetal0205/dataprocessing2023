@@ -7,10 +7,10 @@
     <div class="content">
         <span>{{manpad.weight}} kg</span>
         <div class="quantity-box">
-            <i class='bx bx-minus'></i>
-            <input class="quantity-num" type="text" value="0" disabled>
-            <i class='bx bx-plus'></i>
+            <i class='bx bx-minus' (click)="quantityChangedItemsMinus($event)"></i>
+            <input  class="quantity-num" type="text" value="{{inputValue}}" disabled>
+            <i class='bx bx-plus' (click)="quantityChangedItemsPlus($event)"></i>
         </div>
-        <button class="btn-add">add</button>
+        <button class="btn-add" (click)="addToStock(manpad)">add</button>
     </div>
 </div>

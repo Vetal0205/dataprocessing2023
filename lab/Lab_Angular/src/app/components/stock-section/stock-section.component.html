@@ -9,7 +9,7 @@
             <span class="stock-quantity stock-header stock-column">QUANTITY</span>
         </div>
         <div class="stock-items">
-            <!-- js generated -->
+            <app-stock-item (deleteClicked)="deleteItem($event)"  *ngFor="let item of stock_items" [stock_item]='item'></app-stock-item>
         </div>
         <div class="stock-total">
             <!-- js generated -->

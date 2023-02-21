@@ -97,13 +97,13 @@ header {
 @media (max-width:770px) {
     header {
         padding: 12px 4%;
+        #menu-icon  {
+            display:initial;
+            margin-left: 65px;
+        }
     }
 
-    #menu-icon {
-        display: initial;
-        margin-left: 65px;
-
-    }
+    
 
     .navbar {
         position: absolute;

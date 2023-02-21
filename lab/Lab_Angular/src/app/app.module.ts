@@ -15,7 +15,7 @@ import { PutRequestFormComponent } from './components/request-form/put-request-f
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 import { MatSelectModule } from '@angular/material/select';
@@ -23,6 +23,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button";
 import { PostRequestComponent } from './components/post-request/post-request.component';
+import { StockItemComponent } from './components/stock-item/stock-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PostRequestComponent } from './components/post-request/post-request.com
     VolunteersSectionComponent,
     AboutSectionComponent,
     ManpadTemplateComponent,
-    PostRequestComponent
+    PostRequestComponent,
+    StockItemComponent
   ],
   imports: [
     MatFormFieldModule,
@@ -48,7 +50,8 @@ import { PostRequestComponent } from './components/post-request/post-request.com
     MatButtonModule,
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
