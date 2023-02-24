@@ -8,6 +8,16 @@ public class Manpads implements Serializable {
     private double weight;
     private String photo;
 
+    @Override
+    public String toString() {
+        return "Manpads{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", photo='" + photo + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
