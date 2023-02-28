@@ -20,6 +20,12 @@ public class Helper {
         }
         return jsonElement;
     }
+    public static int idParse(HttpServletRequest request) {
+        return Integer.parseInt(request.getParameter("id"));
+    }
+    public static boolean hibernateParse(HttpServletRequest request) {
+        return Boolean.parseBoolean(request.getParameter("hibernate"));
+    }
     public static Manpads userParse(HttpServletRequest request) {
         Manpads manpad = new Manpads();
         JsonElement jsonElement = bodyParse(request);

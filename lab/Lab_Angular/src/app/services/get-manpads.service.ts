@@ -19,13 +19,13 @@ export class GetManpadsService {
   getItems():Observable<IManpad[]>{
     return this.http.get<IManpad[]>(this.apiurl);
   }
-  putManpad(body:IManpad):Observable<IManpad[]>{
-    return this.http.put<IManpad[]>(this.apiurl + "/" + body.id, body)
+  putManpad(body:IManpad, hibernate:boolean):Observable<IManpad[]>{
+    return this.http.put<IManpad[]>(this.apiurl + `?hibernate=${hibernate}`, body)
   }
-  delManpad(body:IManpad):Observable<IManpad[]>{
-    return this.http.delete<IManpad[]>(this.apiurl + "/" + body.id)
+  delManpad(body:IManpad, hibernate:boolean):Observable<IManpad[]>{
+    return this.http.delete<IManpad[]>(this.apiurl + `?id=${body.id}`+`&hibernate=${hibernate}`)
   }
-  postManpad(body:IManpad):Observable<IManpad>{
-    return this.http.post<IManpad>(this.apiurl, body)
+  postManpad(body:IManpad, hibernate:boolean):Observable<IManpad>{
+    return this.http.post<IManpad>(this.apiurl + `?hibernate=${hibernate}`, body)
   }
 }

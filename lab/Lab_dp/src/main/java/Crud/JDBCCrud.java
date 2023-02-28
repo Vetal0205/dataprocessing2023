@@ -1,17 +1,16 @@
 package Crud;
 
 import Entities.Manpads;
-import JDBC.Connect;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SQLCrud implements LabCRUDInterface<Manpads> {
+public class JDBCCrud implements LabCRUDInterface<Manpads> {
     Connection con;
 
-    public  SQLCrud(Connection con){
+    public JDBCCrud(Connection con){
         this.con = con;
     }
     @Override

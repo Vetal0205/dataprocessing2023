@@ -16,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+
 import { PostRequestComponent } from './components/post-request/post-request.component';
 import { StockItemComponent } from './components/stock-item/stock-item.component';
 
@@ -42,12 +44,14 @@ import { StockItemComponent } from './components/stock-item/stock-item.component
     StockItemComponent
   ],
   imports: [
+    CommonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatRadioModule,
     MatInputModule,
     MatButtonModule,
+    MatCheckboxModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,

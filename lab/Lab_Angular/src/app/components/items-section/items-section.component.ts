@@ -50,14 +50,14 @@ export class ItemsSectionComponent implements OnInit {
     this.stockItems = this.stockItems.filter(obj => obj.id !== item.id);
   }
 
-  postRequest(body: IManpad) {
-    this.service.postManpad(body).subscribe(() => { alert("POST request has been sent!"); this.getManpad(); })
+  postRequest(body: {manpad:IManpad, hibernate:boolean}) {
+    this.service.postManpad(body.manpad, body.hibernate).subscribe(() => { alert("POST request has been sent!"); this.getManpad(); })
   }
-  putRequest(body: IManpad) {
-    this.service.putManpad(body).subscribe(() => { alert("PUT request has been sent!"); this.getManpad(); })
+  putRequest(body: {manpad:IManpad, hibernate:boolean}) {
+    this.service.putManpad(body.manpad, body.hibernate).subscribe(() => { alert("PUT request has been sent!"); this.getManpad(); })
   }
-  deleteRequest(body: IManpad) {
-    this.service.delManpad(body).subscribe(() => {
+  deleteRequest(body:{manpad:IManpad, hibernate:boolean}) {
+    this.service.delManpad(body.manpad, body.hibernate).subscribe(() => {
       alert("DELETE request has been sent!");
       this.getManpad();
     })

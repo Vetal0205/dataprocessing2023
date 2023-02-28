@@ -13,7 +13,7 @@ export class PutRequestFormComponent implements OnInit, OnDestroy {
   @Input() public model!: IManpad;
   @Output() public onChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() public onInit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
-  @Output() public putRequest: EventEmitter<IManpad> = new EventEmitter<IManpad>();
+  @Output() public putRequest: EventEmitter<{manpad:IManpad, hibernate:boolean}> = new EventEmitter<{manpad:IManpad, hibernate:boolean}>();
 
   constructor(private fb: FormBuilder) {
 
@@ -31,32 +31,14 @@ export class PutRequestFormComponent implements OnInit, OnDestroy {
     this.formGroup = this.fb.group({
       name: [
         this.model.name,
-        [Validators.required,
-
-
-        ]
-      ],
-
-
+        [Validators.required,]],
       weight: [
         this.model.weight,
-        [Validators.required,
-
-
-        ]
-      ],
-
-
+        [Validators.required,]],
       photo: [
         this.model.photo,
-        [Validators.required,
-
-
-        ]
-      ],
-
-
-
+        [Validators.required,]],
+      hibernate: false,
     });
   }
   // convenience getter for easy access to form fields
@@ -76,7 +58,7 @@ export class PutRequestFormComponent implements OnInit, OnDestroy {
       this.model.name = this.f['name'].value;
       this.model.weight = this.f['weight'].value;
       this.model.photo = this.f['photo'].value;
-      this.putRequest.emit(this.model);
+      this.putRequest.emit({manpad:this.model, hibernate:this.f['hibernate'].value });
     }
   }
 

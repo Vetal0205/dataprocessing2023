@@ -1,28 +1,47 @@
 package Servlets;
 
-import Crud.SQLCrud;
+import Crud.JDBCCrud;
+import Crud.JPACrud;
 import Crud.LabCRUDInterface;
+
 import Entities.Manpads;
-import JDBC.Connect;
+
+import Hibernate.JPAConnect;
+import JDBC.JDBCConnect;
+
+import org.hibernate.SessionFactory;
+import java.sql.Connection;
 
 public class ManpadsServletConfig implements ManpadsServletConfigInterface {
-    LabCRUDInterface<Manpads> sqlCRUD;
-    Connect con;
+    LabCRUDInterface<Manpads> jdbcCRUD;
+    LabCRUDInterface<Manpads> jpaCRUD;
+    JPAConnect jpaConnect;
+    JDBCConnect jdbcConnect;
 
-    @Override
-    public LabCRUDInterface<Manpads> getSqlCRUD() {
-        return sqlCRUD;
-    }
-    @Override
-    public void CloseConnection(){
-        this.con.closeConnect();
-    }
     public ManpadsServletConfig() {
-        this.con = new Connect();
-        this.sqlCRUD = new SQLCrud(this.con.getCon());
+        this.jdbcConnect = new JDBCConnect();
+        this.jdbcCRUD= new JDBCCrud(this.jdbcConnect.getCon());
+
+        this.jpaConnect = new JPAConnect();
+        this.jpaCRUD = new JPACrud(this.jpaConnect.getSessionFactory().openSession());
     }
-    public void setSqlCRUD(LabCRUDInterface<Manpads> sqlCRUD) {
-        this.sqlCRUD = sqlCRUD;
+    @Override
+    public LabCRUDInterface<Manpads> getJdbcCrud() {
+        return this.jdbcCRUD;
     }
 
+    @Override
+    public LabCRUDInterface<Manpads> getJpaCrud() {
+        return this.jpaCRUD;
+    }
+
+    @Override
+    public void CloseJdbcConnection() {
+        this.jpaConnect.closeSession();
+    }
+
+    @Override
+    public void CloseJpaConnection() {
+        this.jdbcConnect.closeConnect();
+    }
 }

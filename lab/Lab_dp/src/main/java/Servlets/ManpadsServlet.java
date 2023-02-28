@@ -16,59 +16,67 @@ import java.io.PrintWriter;
 
 @WebServlet("/manpads/*")
 public class ManpadsServlet extends HttpServlet {
-    ManpadsServletConfigInterface servletConfig;
-    LabCRUDInterface<Manpads> CRUD;
+    static ManpadsServletConfigInterface servletConfig;
+    static LabCRUDInterface<Manpads> jdbcCRUD;
+    static LabCRUDInterface<Manpads> jpaCRUD;
     public ManpadsServlet() {
-        this.servletConfig = new ManpadsServletConfig();
-        this.CRUD = servletConfig.getSqlCRUD();
+        servletConfig = new ManpadsServletConfig();
+        jdbcCRUD = servletConfig.getJdbcCrud();
+        jpaCRUD = servletConfig.getJpaCrud();
     }
     public void init(ServletConfig config) throws ServletException{
-        this.servletConfig = new ManpadsServletConfig();
-        this.CRUD = servletConfig.getSqlCRUD();
+        servletConfig = new ManpadsServletConfig();
+        jdbcCRUD = servletConfig.getJdbcCrud();
+        jpaCRUD = servletConfig.getJpaCrud();
     }
     public void destroy(){
-        this.servletConfig.CloseConnection();
+        servletConfig.CloseJdbcConnection();
+        servletConfig.CloseJpaConnection();
     }
     @Override
     public void doGet(HttpServletRequest request, @NotNull HttpServletResponse response) throws IOException {
         setAccessControlHeaders(response);
-        String someJson = new Gson().toJson(CRUD.read());
+        String someJson = new Gson().toJson(jdbcCRUD.read());
         System.out.println(someJson);
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        out.print(someJson);
         out.flush();
     }
     @Override
     public void doPut(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) throws IOException {
         setAccessControlHeaders(response);
         Manpads manpad = Helper.userParse(request);
-//        int id = Integer.parseInt(request.getPathInfo().substring(1));
-//        int index = Helper.getIndexByUserId(id, manpadsList);
-//        manpadsList.set(index, manpad);
-        CRUD.update(manpad.getId(), manpad);
+        if (Helper.hibernateParse(request)){
+            jpaCRUD.update(manpad.getId(), manpad);
+        }
+        else {
+            jdbcCRUD.update(manpad.getId(), manpad);
+        }
         doGet(request,response);
     }
     @Override
     public void doPost(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) throws ServletException, IOException {
         setAccessControlHeaders(response);
         Manpads manpad = Helper.userParse(request);
-//        manpad.setId(Helper.getNextId(manpadsList));
-//        manpadsList.add(manpad);
-        CRUD.create(manpad);
-        System.out.println(manpad.getName());
-        System.out.println(manpad.getWeight());
-
+        if (Helper.hibernateParse(request)){
+            jdbcCRUD.create(manpad);
+        }
+        else {
+            jpaCRUD.create(manpad);
+        }
         doGet(request,response);
     }
     @Override
     public void doDelete(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) throws ServletException, IOException {
         setAccessControlHeaders(response);
-        int id = Integer.parseInt(request.getPathInfo().substring(1));
-//        int index = Helper.getIndexByUserId(id, manpadsList);
-//        manpadsList.remove(index);
-        CRUD.delete(id);
+        System.out.println(request);
+        if (Helper.hibernateParse(request)){
+            jpaCRUD.delete(Helper.idParse(request));
+        }
+        else {
+            jdbcCRUD.delete(Helper.idParse(request));
+        }
         doGet(request,response);
     }
     @Override

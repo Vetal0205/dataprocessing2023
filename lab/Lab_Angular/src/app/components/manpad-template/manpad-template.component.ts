@@ -9,7 +9,7 @@ import { IManpadExt } from 'src/app/interfaces/imanpad-ext';
 })
 export class ManpadTemplateComponent implements OnInit {
   @Input() manpad!: IManpad;
-  @Output() public deleteClicked: EventEmitter<IManpad> = new EventEmitter<IManpad>();
+  @Output() public deleteClicked: EventEmitter<{manpad:IManpad, hibernate:boolean}> = new EventEmitter<{manpad:IManpad, hibernate:boolean}>();
   @Output() public selectClicked: EventEmitter<IManpad> = new EventEmitter<IManpad>();
   @Output() public addButtonClicked: EventEmitter<IManpadExt> = new EventEmitter<IManpadExt>();
   constructor() { }
@@ -19,8 +19,8 @@ export class ManpadTemplateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  deleteClick(manpad:IManpad){
-    this.deleteClicked.emit(manpad);
+  deleteClick(click: {manpad:IManpad, hibernate:boolean}){
+    this.deleteClicked.emit(click);
   }
   onSelect(manpad:IManpad){
     this.selectClicked.emit(manpad);

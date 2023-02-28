@@ -1,8 +1,9 @@
 <div class="box">
     <img (click)="onSelect(manpad)" src="{{manpad.photo}}" alt="{{manpad.name}}">
     <div class="name-and-del">
+        <button class="btn-del" (click)="deleteClick({manpad:manpad, hibernate:true})">Delete With JPA</button>
         <h3>{{manpad.name}}</h3>
-        <button class="btn-add" (click)="deleteClick(manpad)">X</button>
+        <button class="btn-del" (click)="deleteClick({manpad:manpad, hibernate:false})">Delete With JDBC</button>
     </div>
     <div class="content">
         <span>{{manpad.weight}} kg</span>

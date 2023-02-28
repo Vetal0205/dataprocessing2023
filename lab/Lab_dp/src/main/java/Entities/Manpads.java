@@ -2,7 +2,14 @@ package Entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Manpads", schema = "vitalii")
 public class Manpads implements Serializable {
+    @Id
     private int id;
     private String name;
     private double weight;

@@ -1,12 +1,12 @@
 package JDBC;
 
 import java.sql.*;
-public class Connect {
+public class JDBCConnect {
     private String url = "jdbc:postgresql://localhost:5432/dp2023?user=vitalii&password=232323";
-    private Connection con;
-    public Connect(){
+    private static Connection con;
+    public JDBCConnect(){
         try {
-            this.con = DriverManager.getConnection(this.url);
+            con = DriverManager.getConnection(this.url);
             this.createTable();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,11 +38,11 @@ public class Connect {
     }
 
     public void setCon(Connection con) {
-        this.con = con;
+        con = con;
     }
     public void closeConnect(){
         try {
-            this.con.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
