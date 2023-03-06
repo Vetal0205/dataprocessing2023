@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Manpads</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Edit Manpads</h2>
+<form th:action="@{/manpads/edit/{id}(id=${manpads.id})}" th:object="${manpads}" method="post">
+  <input type="hidden" th:field="*{id}" />
+  <p>
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" required="required" />
+  </p>
+  <p>
+    <label>Weight:</label>
+    <input type="number" step="0.1" th:field="*{weight}" required="required" />
+  </p>
+  <p>
+    <label>Photo:</label>
+    <input type="text" th:field="*{photo}" />
+  </p>
+  <input type="submit" value="Save" />
+</form>
+<br />
+<a href="/" th:href="@{/}">Back to list</a>
+</body>
+</html>

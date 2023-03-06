@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Manpads Database</title>
+</head>
+<body>
+<h1>Manpads Database</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Weight</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="manpads : ${manpadsList}">
+    <td th:text="${manpads.id}"></td>
+    <td th:text="${manpads.name}"></td>
+    <td th:text="${manpads.weight}"></td>
+    <td>
+      <img th:if="${manpads.photo}" th:src="${manpads.photo}" width="100" height="100"/>
+      <span th:if="${manpads.photo == null}">No photo</span>
+    </td>
+    <td>
+      <a th:href="@{/edit/{id}(id=${manpads.id})}">Edit</a>
+    </td>
+    <td>
+      <a th:href="@{/delete/{id}(id=${manpads.id})}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br/>
+<a th:href="@{/add}">Add new Manpads</a>
+</body>
+</html>
