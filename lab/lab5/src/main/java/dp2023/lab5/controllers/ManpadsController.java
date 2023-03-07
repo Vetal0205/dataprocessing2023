@@ -36,7 +36,7 @@ public class ManpadsController {
         if (result.hasErrors()) {
             return "add_manpads";
         }
-        System.out.println(manpads.toString());
+        System.out.println(manpads.getWeight());
         manpadsService.saveOrUpdateManpads(manpads);
         return "redirect:/";
     }

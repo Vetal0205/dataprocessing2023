@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Manpads Database</title>
+  <link rel="stylesheet"  th:href="@{/css/index.css}">
+
 </head>
 <body>
-<h1>Manpads Database</h1>
-<table>
+<div>
+  <h1>Manpads Database</h1>
+<table >
   <thead>
   <tr>
     <th>ID</th>
@@ -35,7 +38,7 @@
   </tr>
   </tbody>
 </table>
-<br/>
-<a th:href="@{/add}">Add new Manpads</a>
+<a class="btn-submit" th:href="@{/add}">Add new Manpads</a>
+</div>
 </body>
 </html>

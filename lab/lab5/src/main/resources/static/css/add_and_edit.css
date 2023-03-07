@@ -1,0 +1,80 @@
+body{
+  background-color:#718400;
+
+}
+.form-group {
+  justify-content: center;
+  border-radius: .8rem;
+  background-color: #96B100;
+  box-shadow: 2px 4px 10px 4px rgb(14 55 54 / 15%);;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  width: 40%;
+  gap:1rem;
+}
+
+div{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction:column;
+}
+.form-group h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.form-group tr {
+  width: 80%;
+  position: relative;
+
+}
+tr{
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.row {
+  border-radius: .8rem;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  border: 3px solid #718400 ;
+  outline: none;
+  background: transparent;
+  padding-left:10px;
+}
+td{
+    color: #fff;
+}
+.btn-submit {
+  padding: 0 1rem;
+  color: #E3EDA6;
+  border: 2px #718400 solid;
+  background-color: #96B100;
+  border-radius: .4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 20px;
+
+
+}
+buttons{
+    gap:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+    width:100%
+}
+.btn-submit:hover {
+      background-color:#718400;
+      transition: 0.2s all linear;
+  }

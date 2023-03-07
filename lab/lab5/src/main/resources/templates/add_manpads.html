@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Add new Manpads</title>
+    <meta charset="UTF-8">
+    <title>Add new Manpads</title>
+    <link rel="stylesheet"  th:href="@{/css/add_and_edit.css}">
 </head>
 <body>
-<h1>Add new Manpads</h1>
-<form th:action="@{/add}" th:object="${manpads}" method="post">
+<div>
+
+<form class="form-group" th:action="@{/add}" th:object="${manpads}" method="post">
+    <h2>Add new Manpads</h2>
   <table>
     <tr>
 <!--      <td>ID:</td>-->
-      <td><input type="number" th:field="*{id}" readonly="readonly" /></td>
+      <td><input class="row" type="number" th:field="*{id}" readonly="readonly" hidden="hidden"/></td>
     </tr>
     <tr>
       <td>Name:</td>
-      <td><input type="text" th:field="*{name}"/></td>
+      <td><input class="row" type="text" th:field="*{name}"/></td>
     </tr>
     <tr>
       <td>Weight:</td>
-      <td><input type="number" step="0.1" min="0" max="999" th:field="*{weight}"/></td>
+      <td><input class="row" type="number" step="0.1" min="0" max="999" th:field="*{weight}"/></td>
     </tr>
     <tr>
       <td>Photo:</td>
-      <td><input type="text" th:field="*{photo}"/></td>
+      <td><input class="row" type="text" th:field="*{photo}"/></td>
     </tr>
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Save"/>
-        <a th:href="@{/}">Cancel</a>
-      </td>
+    <tr class="buttons">
+        <td>
+            <input class="btn-submit" type="submit" value="Save"/>
+        </td>
+        <td>
+            <button class="btn-submit" th:href="@{/}">Cancel</button>
+        </td>
     </tr>
   </table>
 </form>
+<ul>
+    <li>name:"Blowpipe", weight:2.2, photo:"/manpads_img/blowpipe.png"</li>
+    <li>name:"Igla", weight:1.3, photo:"/manpads_img/igla.png"</li>
+    <li>name:"FIM-43 Redeye", weight:1.0, photo:"/manpads_img/redeye.png"</li>
+    <li>name:"FIM-92 Stinger", weight:2.3, photo:"/manpads_img/stinger.png"</li>
+    <li>name:"Javelin", weight:2.2, photo:"/manpads_img/javelin.png"</li>
+</ul>
+</div>
 </body>
 </html>
