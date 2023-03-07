@@ -24,6 +24,7 @@ public class ManpadsService {
 
     public void saveOrUpdateManpads(Manpads manpads) {
         manpadsDao.save(manpads);
+
     }
 
     public void deleteManpads(int id) {

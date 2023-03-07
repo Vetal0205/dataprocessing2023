@@ -36,6 +36,7 @@ public class ManpadsController {
         if (result.hasErrors()) {
             return "add_manpads";
         }
+        System.out.println(manpads.toString());
         manpadsService.saveOrUpdateManpads(manpads);
         return "redirect:/";
     }
@@ -51,7 +52,7 @@ public class ManpadsController {
         }
     }
 
-    @PostMapping("/edit/{id}")
+    @PostMapping("manpads/edit/{id}")
     public String editManpads(@PathVariable("id") int id, @ModelAttribute("manpads") @Valid Manpads manpads,
                               BindingResult result) {
         if (result.hasErrors()) {

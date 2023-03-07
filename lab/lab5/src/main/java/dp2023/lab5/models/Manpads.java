@@ -1,10 +1,6 @@
 package dp2023.lab5.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,7 +8,8 @@ import java.io.Serializable;
 @Table(name = "Manpads", schema = "vitalii")
 public class Manpads implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(name = "my_seq", sequenceName = "vitalii.my_seq_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq")
     private int id;
     private String name;
     private double weight;
