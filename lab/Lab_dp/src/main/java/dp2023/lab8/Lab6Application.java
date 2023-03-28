@@ -1,4 +1,4 @@
-package dp2023.lab7;
+package dp2023.lab8;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

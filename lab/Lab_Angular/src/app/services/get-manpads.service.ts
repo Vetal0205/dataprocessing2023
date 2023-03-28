@@ -14,19 +14,23 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class GetManpadsService {
-  private apiurl:string = "http://localhost:8080/Lab_dp";
+  private apiurl:string = "http://localhost:8080/Lab_dp/api/manpads";
+  private allapiurl:string = "http://localhost:8080/Lab_dp";
   constructor(private http:HttpClient) { }
 
-  getItems():Observable<HttpResponseLab_dp>{
-    return this.http.get<HttpResponseLab_dp>(this.apiurl);
+  getAllResponse():Observable<HttpResponseLab_dp>{
+    return this.http.get<HttpResponseLab_dp>(this.allapiurl);
+  }
+  getManpads():Observable<IManpad[]>{
+    return this.http.get<IManpad[]>(this.apiurl + "/get");
   }
   putManpad(body:IManpad, hibernate:boolean):Observable<IManpad[]>{
-    return this.http.put<IManpad[]>(this.apiurl + `/${body.id}`, body)
+    return this.http.put<IManpad[]>(this.apiurl + "/update" + `/${body.id}`, body)
   }
   delManpad(body:IManpad, hibernate:boolean):Observable<IManpad[]>{
-    return this.http.delete<IManpad[]>(this.apiurl + `/${body.id}`)
+    return this.http.delete<IManpad[]>(this.apiurl + "/delete" + `/${body.id}`)
   }
   postManpad(body:IManpad, hibernate:boolean):Observable<IManpad>{
-    return this.http.post<IManpad>(this.apiurl, body)
+    return this.http.post<IManpad>(this.apiurl + "/post", body)
   }
 }

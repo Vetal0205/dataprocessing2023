@@ -1,4 +1,4 @@
-package dp2023.lab7.Entities;
+package dp2023.lab8.Entities;
 
 import lombok.Data;
 

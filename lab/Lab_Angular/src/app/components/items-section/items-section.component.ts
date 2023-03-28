@@ -36,9 +36,8 @@ export class ItemsSectionComponent implements OnInit {
     }
   }
   getManpad() {
-    this.service.getItems().subscribe((manpads) => {
-      console.log(manpads._embedded.manpadses)
-      this.Manpads = manpads._embedded.manpadses;
+    this.service.getManpads().subscribe((manpads) => {
+      this.Manpads = manpads;
       if (this.Manpads.length == 0 && this.showPUTform == true) {
         this.showPUTform = false;
         this.selectedManpad = undefined;

@@ -1,5 +1,5 @@
-package dp2023.lab7.Repositories;
-import dp2023.lab7.Entities.Manpads;
+package dp2023.lab8.Repositories;
+import dp2023.lab8.Entities.Manpads;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;

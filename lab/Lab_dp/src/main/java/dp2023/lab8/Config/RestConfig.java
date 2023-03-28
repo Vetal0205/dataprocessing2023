@@ -1,4 +1,4 @@
-package dp2023.lab7.Config;
+package dp2023.lab8.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -10,6 +10,6 @@ public class RestConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        config.exposeIdsFor(dp2023.lab7.Entities.Manpads.class);
+        config.exposeIdsFor(dp2023.lab8.Entities.Manpads.class);
     }
 }
