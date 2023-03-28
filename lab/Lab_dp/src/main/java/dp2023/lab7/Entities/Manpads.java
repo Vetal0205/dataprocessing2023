@@ -1,4 +1,4 @@
-package dp2023.lab6.Entities;
+package dp2023.lab7.Entities;
 
 import lombok.Data;
 
@@ -18,14 +18,4 @@ public class Manpads implements Serializable {
     private String name;
     private double weight;
     private String photo;
-
-
-
-    /*public Manpads(int id, String name, double weight, String photo) {
-        this.id = id;
-        this.name = name;
-        this.weight = weight;
-        this.photo = photo;
-    }
-    public Manpads(){}*/
 }

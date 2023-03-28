@@ -1,4 +1,4 @@
-package dp2023.lab6;
+package dp2023.lab7;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
